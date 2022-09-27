@@ -1,4 +1,4 @@
 provider "google" {
-  project     = var.landing-project-id
-  region      = "${var.gcp-region}"
+  project     = var.landing_project_id
+  region      = "${var.gcp_region}"
 }
