@@ -10,7 +10,7 @@ module "github-identity-federation" {
 module "mlops" {
   source     = "./modules/vertex-ai"
   region     = var.gcp_region
-  project-id = var.mlops_project_id
+  project-id = var.landing_project_id
 }
 
 resource "google_project_iam_member" "github-actions-artifacts-binding" {
