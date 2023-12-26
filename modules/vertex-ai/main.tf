@@ -7,10 +7,10 @@ module "vertex-ai-blueprint" {
   }
   bucket_name  = "fardust-mlops-artifacts"
   dataset_name = "MLOPS_TRAIN_DATASET"
-  prefix       = null
+  prefix       = var.project-id
   region       = var.region
   location     = split("-", var.region)[0]
   project_config = {
-    project_id = var.project-id
+    project_id = ""
   }
 }
