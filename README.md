@@ -1,9 +1,10 @@
 # Terraform Infrastructure
 
-This module is the base for my personal projects infrastructure. It is used to create the
-following resources:
+This module serves as the foundation for the infrastructure of my personal projects. It leverages Terraform, a popular Infrastructure as Code (IaC) tool, to provision and manage resources in an automated, consistent, and manageable manner.
 
-- Workload Identity Pool
+The module is designed to create the following resources:
+
+- Workload Identity Pool (Github): This resource allows your GitHub actions to authenticate with Google Cloud services. It provides a secure way to manage and authorize my GitHub workflows.
 
 ## Modules Docs
 
