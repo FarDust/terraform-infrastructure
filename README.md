@@ -1,4 +1,8 @@
+
 # Terraform Infrastructure
+
+![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
+
 
 This module serves as the foundation for the infrastructure of my personal projects. It leverages Terraform, a popular Infrastructure as Code (IaC) tool, to provision and manage resources in an automated, consistent, and manageable manner.
 
