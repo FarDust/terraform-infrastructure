@@ -5,11 +5,9 @@ resource "google_service_account" "federated-user" {
   project      = var.project-id
 }
 
-resource "google_service_account_iam_binding" "github-federated-user-repository-binding" {
+resource "google_service_account_iam_member" "github-federated-user-repository-binding" {
   for_each           = toset(var.allowed-repositories)
   service_account_id = google_service_account.federated-user.name
   role               = "roles/iam.workloadIdentityUser"
-  members = [
-    "principalSet://iam.googleapis.com/${var.identity-pool-name}/attribute.repository/${each.value}"
-  ]
+  member = "principalSet://iam.googleapis.com/${var.identity-pool-name}/attribute.repository/${each.value}"
 }
