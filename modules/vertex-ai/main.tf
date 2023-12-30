@@ -1,5 +1,5 @@
 module "vertex-ai-blueprint" {
-  source = "github.com/GoogleCloudPlatform/cloud-foundation-fabric//blueprints/data-solutions/vertex-mlops?ref=v28.0.0"
+  source = "https://github.com/FarDust/cloud-foundation-fabric//blueprints/data-solutions/vertex-mlops?ref=master"
   notebooks = {
     "personal-workbench" = {
       type = "USER_MANAGED"
@@ -7,10 +7,9 @@ module "vertex-ai-blueprint" {
   }
   bucket_name  = "fardust-mlops-artifacts"
   dataset_name = "MLOPS_TRAIN_DATASET"
-  prefix       = var.project-id
   region       = var.region
   location     = split("-", var.region)[0]
   project_config = {
-    project_id = ""
+    project_id = var.project-id
   }
 }
