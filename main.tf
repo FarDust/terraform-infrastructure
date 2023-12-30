@@ -7,6 +7,12 @@ module "github-identity-federation" {
   identity-provider-id     = var.landing_identity_provider_id
 }
 
+module "mlops" {
+  source     = "./modules/vertex-ai"
+  region     = var.gcp_region
+  project-id = var.landing_project_id
+}
+
 resource "google_project_iam_member" "github-actions-artifacts-binding" {
   depends_on = [
     module.github-identity-federation

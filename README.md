@@ -17,26 +17,27 @@ The module is designed to create the following resources:
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.2.9 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | 4.36.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.6 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~>5.4 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 4.36.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 5.10.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_github-identity-federation"></a> [github-identity-federation](#module\_github-identity-federation) | ./modules/github-identity-federation | n/a |
+| <a name="module_mlops"></a> [mlops](#module\_mlops) | ./modules/vertex-ai | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_project_iam_member.github-actions-artifacts-binding](https://registry.terraform.io/providers/hashicorp/google/4.36.0/docs/resources/project_iam_member) | resource |
+| [google_project_iam_member.github-actions-artifacts-binding](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 
 ## Inputs
 
@@ -47,6 +48,7 @@ The module is designed to create the following resources:
 | <a name="input_landing_identity_pool_id"></a> [landing\_identity\_pool\_id](#input\_landing\_identity\_pool\_id) | The ID of the Identity pool. | `string` | n/a | yes |
 | <a name="input_landing_identity_provider_id"></a> [landing\_identity\_provider\_id](#input\_landing\_identity\_provider\_id) | The ID of the Identity pool provider. | `string` | n/a | yes |
 | <a name="input_landing_project_id"></a> [landing\_project\_id](#input\_landing\_project\_id) | The ID of the project in which the resources will be provisioned. | `string` | n/a | yes |
+| <a name="input_mlops_project_id"></a> [mlops\_project\_id](#input\_mlops\_project\_id) | The ID of the project in which the resources will be provisioned. | `string` | n/a | yes |
 
 ## Outputs
 
