@@ -1,5 +1,5 @@
 module "vertex-ai-blueprint" {
-  source = "https://github.com/FarDust/cloud-foundation-fabric//blueprints/data-solutions/vertex-mlops"
+  source = "github.com/FarDust/cloud-foundation-fabric//blueprints/data-solutions/vertex-mlops"
   notebooks = {
     "personal-workbench" = {
       type = "USER_MANAGED"
