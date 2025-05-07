@@ -26,3 +26,30 @@ resource "google_project_iam_member" "github-actions-artifacts-binding" {
     expression  = "resource.name.startsWith(\"//storage.googleapis.com/landing-artifacts\") &&\nresource.service == \"storage.googleapis.com\""
   }
 }
+
+resource "google_artifact_registry_repository" "brainwave" {
+  provider      = google
+  location      = var.gcp_region
+  repository_id = "brainwave"
+  format        = "DOCKER"
+  description   = "Central Artifact Registry for AI backend containers"
+  mode          = "STANDARD_REPOSITORY"
+}
+
+resource "google_artifact_registry_repository_iam_member" "brainwave-writer-deploy-ai-api" {
+  depends_on = [
+    module.github-identity-federation,
+    google_artifact_registry_repository.brainwave
+  ]
+  location   = google_artifact_registry_repository.brainwave.location
+  repository = google_artifact_registry_repository.brainwave.name
+  role       = "roles/artifactregistry.writer"
+  member     = "serviceAccount:${module.github-identity-federation.federated-github-users["deploy-ai-api"].federated-user.email}"
+}
+
+resource "google_project_iam_member" "cloudrun-developer-deploy-ai-api" {
+  depends_on = [module.github-identity-federation]
+  project    = var.landing_project_id
+  role       = "roles/run.admin"
+  member     = "serviceAccount:${module.github-identity-federation.federated-github-users["deploy-ai-api"].federated-user.email}"
+}
