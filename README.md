@@ -4,11 +4,28 @@
 ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white)
 
 
-This module serves as the foundation for the infrastructure of my personal projects. It leverages Terraform, a popular Infrastructure as Code (IaC) tool, to provision and manage resources in an automated, consistent, and manageable manner.
+### 🌐 Terraform Infrastructure for Personal Projects
 
-The module is designed to create the following resources:
+Welcome to the **Terraform Infrastructure** repository! 🚀 This repository serves as a powerful foundation for managing your personal project infrastructure effortlessly using Terraform, an **Infrastructure as Code (IaC)** tool.
 
-- Workload Identity Pool (Github): This resource allows your GitHub actions to authenticate with Google Cloud services. It provides a secure way to manage and authorize my GitHub workflows.
+### 📌 Key Features
+- **✅ Workload Identity Pool (GitHub):** Seamlessly authenticate your GitHub actions with Google Cloud services securely.
+- **🔧 Resources Provided:**
+  - Google Cloud IAM member tailored specifically for GitHub actions.
+
+### 🗂️ Module Structure
+- **Modules:**
+  - **👥 GitHub Identity Federation:** Located in `./modules/github-identity-federation`, this module facilitates identity federation with GitHub users.
+  - **🤖 MLOps:** Located in `./modules/vertex-ai`, this module is designed for managing your MLOps workflows.
+
+### 📋 Requirements
+- **Terraform Version:** ~> 1.6
+- **Google Provider Version:** ~> 5.4
+- **Google Cloud Version:** 5.10.0
+
+### 📝 License
+This project is licensed under the **MIT license**, allowing for flexibility and customization!
+
 
 ## Modules Docs
 
