@@ -39,3 +39,9 @@ variable "federated_github_users" {
   description = "The Github users to federate."
   sensitive   = false
 }
+
+variable "billing_account_id" {
+  description = "The ID of the GCP billing account to associate budgets and resources with"
+  type        = string
+  sensitive   = true
+}
