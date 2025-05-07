@@ -54,6 +54,9 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 
 | Name | Type |
 |------|------|
+| [google_artifact_registry_repository.brainwave](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository) | resource |
+| [google_artifact_registry_repository_iam_member.brainwave-writer-deploy-ai-api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository_iam_member) | resource |
+| [google_project_iam_member.cloudrun-developer-deploy-ai-api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 | [google_project_iam_member.github-actions-artifacts-binding](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 
 ## Inputs
