@@ -22,9 +22,20 @@ resource "google_project_service" "enable_apis" {
 module "github-identity-federation" {
   source                   = "./modules/github-identity-federation"
   project-id               = var.landing_project_id
-  federated-github-users   = var.federated_github_users
+  federated-github-users   = merge(
+    var.legacy_federated_github_users,
+    {
+      for key, user in var.federated_github_users : key => {
+        name                 = module.federated_users.service_account_ids[key]
+        display_name         = user.display_name
+        description          = user.description
+        allowed-repositories = user.allowed-repositories
+      }
+    }
+  )
   landing-identity-pool-id = var.landing_identity_pool_id
   identity-provider-id     = var.landing_identity_provider_id
+  depends_on               = [module.federated_users]
 }
 
 module "mlops" {
@@ -32,6 +43,14 @@ module "mlops" {
   region     = var.gcp_region
   project-id = var.landing_project_id
 }
+
+# Federated users using named_sa module
+module "federated_users" {
+  source = "./modules/named_sa"
+  service_accounts = var.federated_service_accounts
+}
+
+
 
 resource "google_project_iam_member" "github-actions-artifacts-binding" {
   depends_on = [

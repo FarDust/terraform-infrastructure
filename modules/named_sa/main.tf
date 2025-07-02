@@ -1,7 +1,7 @@
 locals {
   suffix_map = {
     "standard"  = "-sa"
-    "federated" = "-federated-user"
+    "federated" = "-fa"
   }
 
   calculated_account_ids = {

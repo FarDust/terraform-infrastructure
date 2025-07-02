@@ -1,5 +1,5 @@
 resource "google_service_account" "federated-user" {
-  account_id   = "${var.name}-federated-user"
+  account_id   = can(regex("-fa$", var.name)) ? var.name : "${var.name}-federated-user"
   display_name = "${var.display_name} Federated User"
   description  = "Service account for ${var.display_name} Federated User that ${var.description}"
   project      = var.project-id
