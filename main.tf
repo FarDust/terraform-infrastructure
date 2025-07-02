@@ -44,10 +44,20 @@ module "mlops" {
   project-id = var.landing_project_id
 }
 
-# Federated users using named_sa module
+# Federated users using named_sa module (only for users with named_sa config)
 module "federated_users" {
   source = "./modules/named_sa"
-  service_accounts = var.federated_service_accounts
+  service_accounts = {
+    for key, user in var.federated_github_users : key => {
+      domain            = user.domain
+      component         = user.component
+      purpose           = user.purpose
+      env               = user.env
+      description       = user.description
+      sa_type           = user.sa_type
+      add_suffix_by_this_module = user.add_suffix_by_this_module
+    } if user.domain != null
+  }
 }
 
 

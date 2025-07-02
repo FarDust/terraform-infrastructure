@@ -42,23 +42,14 @@ variable "legacy_federated_github_users" {
 
 variable "federated_github_users" {
   type = map(object({
-    name                 = string
     display_name         = string
     description          = string
     allowed-repositories = list(string)
-  }))
-  description = "The Github users to federate using named_sa module."
-  sensitive   = false
-}
-
-variable "federated_service_accounts" {
-  type = map(object({
-    domain            = string
-    component         = string
-    purpose           = string
-    env               = string
-    description       = string
-    sa_type           = optional(string, "federated")
+    domain              = string
+    component           = string
+    purpose             = string
+    env                 = string
+    sa_type             = optional(string, "federated")
     add_suffix_by_this_module = optional(bool, true)
   }))
   description = "Federated service accounts using named_sa module."
