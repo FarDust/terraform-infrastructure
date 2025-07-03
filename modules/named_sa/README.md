@@ -10,22 +10,32 @@ All Service Accounts will adhere to this format:
 
 ### Component Breakdown:
 
-*   **`[domain]`**: Identifies the primary logical grouping, application, or stack (e.g., `apps`, `ml`, `admin`). Abbreviate only if the total name exceeds 30 characters. Ensure consistency in abbreviations. 🧠
-*   **`[component]`**: Describes the specific service, microservice, or function utilizing this SA (e.g., `web-fe`, `data-proc`, `llm-proxy`). **This is the FIRST component to abbreviate** if the total name approaches or exceeds the 30-character limit.
-*   **`[purpose]`**: Indicates the SA's primary role or critical permissions (e.g., `reader`, `invoker`, `admin`). **This is the SECOND component to abbreviate** if shortening `[component]` was insufficient. Use clear abbreviations (`read`, `exec`).
-*   **`[env]`**: Identifies the environment (e.g., `prod`, `stg`, `dev`).
+*   **`[domain]`**: Identifies the primary logical grouping or infrastructure domain (e.g., `github`, `apps`, `ml`, `admin`). This should align with your folder structure domains and represent the top-level organizational boundary. Prioritize semantic clarity over strict abbreviation - the name should be immediately recognizable. 🧠
+*   **`[component]`**: Describes the specific service or functional area within the domain (e.g., `registry`, `web`, `data-proc`, `federation`). This is equivalent to a service configuration file (like `registry.yml` in your stack). **This is the FIRST component to abbreviate** if the total name approaches or exceeds the 30-character limit, but maintain clarity.
+*   **`[purpose]`**: Indicates the specific microservice or primary action/role (e.g., `publish`, `reader`, `invoker`, `admin`). This represents the actual workload or permission scope within the component. **This is the SECOND component to abbreviate** if shortening `[component]` was insufficient. Use clear abbreviations (`read`, `exec`, `pub`).
+*   **`[env]`**: Identifies the environment or access scope (e.g., `prod`, `stg`, `dev`, `public`). This can represent traditional environments or access levels.
 *   **`[suffix]`**: Explicitly marks the resource type based on `sa_type`.
     *   `-sa`: For standard Service Accounts.
-    *   `-federated-user`: For Service Accounts used with Workload Identity Federation.
+    *   `-fa`: For Service Accounts used with Workload Identity Federation.
+
+### Semantic Clarity Priority 📖
+
+The naming convention prioritizes **semantic readability** over strict categorical adherence. The resulting name should read naturally and immediately convey:
+1. What domain/system it belongs to
+2. What service/component it serves  
+3. What specific purpose it fulfills
+4. What environment/scope it operates in
+
+**Example**: `github-artifact-reg-pub-fa` reads as "GitHub artifact registry public federated account" - immediately clear that this is a GitHub federated user that publishes to GCP Artifact Registry.
 
 ### Naming Process:
 
-1.  Draft the full name using all components.
+1.  Draft the full name using all components, prioritizing semantic clarity.
 2.  **Validate the length.** If `<= 30 characters`, proceed.
 3.  **If `> 30 characters`:**
-    1.  Abbreviate `[component]` as much as possible while retaining clarity.
-    2.  If still exceeding 30 characters, then abbreviate `[domain]`.
-    3.  As a final resort, abbreviate `[purpose]`.
+    1.  Abbreviate `[component]` while maintaining clarity (e.g., `registry` → `reg`).
+    2.  If still exceeding 30 characters, then abbreviate `[purpose]` (e.g., `publish` → `pub`).
+    3.  As a final resort, abbreviate `[domain]` (e.g., `github` → `gh`).
 
 ## Enforcement Rules:
 
@@ -41,10 +51,10 @@ Provide a map of your Service Account definitions. This module will return a map
 ## Inputs:
 
 *   `service_accounts` (map of objects): A map of Service Account definitions. Each object requires:
-    *   `domain` (string): The primary logical grouping or application stack
-    *   `component` (string): The specific service or microservice
-    *   `purpose` (string): The Service Account's primary role or permissions
-    *   `env` (string): The environment identifier
+    *   `domain` (string): The primary logical grouping or infrastructure domain
+    *   `component` (string): The specific service or functional area
+    *   `purpose` (string): The specific microservice or primary action/role
+    *   `env` (string): The environment identifier or access scope
     *   `sa_type` (string, optional, default `standard`): Allowed values: `"standard"` or `"federated"`.
     *   `add_suffix_by_this_module` (bool, optional, default `true`): Set to `false` if the suffix is managed externally.
     *   `description` (string, optional): Used for the final `google_service_account` resource's description.

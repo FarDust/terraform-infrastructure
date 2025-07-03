@@ -47,6 +47,7 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_federated_users"></a> [federated\_users](#module\_federated\_users) | ./modules/named_sa | n/a |
 | <a name="module_github-identity-federation"></a> [github-identity-federation](#module\_github-identity-federation) | ./modules/github-identity-federation | n/a |
 | <a name="module_mlops"></a> [mlops](#module\_mlops) | ./modules/vertex-ai | n/a |
 
@@ -67,11 +68,12 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_billing_account_id"></a> [billing\_account\_id](#input\_billing\_account\_id) | The ID of the GCP billing account to associate budgets and resources with | `string` | n/a | yes |
-| <a name="input_federated_github_users"></a> [federated\_github\_users](#input\_federated\_github\_users) | The Github users to federate. | <pre>map(object({<br>    name                 = string<br>    display_name         = string<br>    description          = string<br>    allowed-repositories = list(string)<br>  }))</pre> | n/a | yes |
+| <a name="input_federated_github_users"></a> [federated\_github\_users](#input\_federated\_github\_users) | Federated service accounts using named\_sa module. | <pre>map(object({<br>    display_name         = string<br>    description          = string<br>    allowed-repositories = list(string)<br>    domain              = string<br>    component           = string<br>    purpose             = string<br>    env                 = string<br>    sa_type             = optional(string, "federated")<br>    add_suffix_by_this_module = optional(bool, true)<br>  }))</pre> | n/a | yes |
 | <a name="input_gcp_region"></a> [gcp\_region](#input\_gcp\_region) | The region in which the resources will be provisioned. | `string` | `"us-central1"` | no |
 | <a name="input_landing_identity_pool_id"></a> [landing\_identity\_pool\_id](#input\_landing\_identity\_pool\_id) | The ID of the Identity pool. | `string` | n/a | yes |
 | <a name="input_landing_identity_provider_id"></a> [landing\_identity\_provider\_id](#input\_landing\_identity\_provider\_id) | The ID of the Identity pool provider. | `string` | n/a | yes |
 | <a name="input_landing_project_id"></a> [landing\_project\_id](#input\_landing\_project\_id) | The ID of the project in which the resources will be provisioned. | `string` | n/a | yes |
+| <a name="input_legacy_federated_github_users"></a> [legacy\_federated\_github\_users](#input\_legacy\_federated\_github\_users) | The legacy Github users to federate. | <pre>map(object({<br>    name                 = string<br>    display_name         = string<br>    description          = string<br>    allowed-repositories = list(string)<br>  }))</pre> | n/a | yes |
 | <a name="input_mlops_project_id"></a> [mlops\_project\_id](#input\_mlops\_project\_id) | The ID of the project in which the resources will be provisioned. | `string` | n/a | yes |
 
 ## Outputs
