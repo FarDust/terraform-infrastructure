@@ -1,10 +1,12 @@
 module "vertex-ai-blueprint" {
-  source = "github.com/FarDust/cloud-foundation-fabric//blueprints/data-solutions/vertex-mlops"
+  source = "github.com/FarDust/cloud-foundation-fabric//blueprints/data-solutions/vertex-mlops?ref=b7467aa6e95ae990a7ef108e622a211c0da6e31b"
+  
   notebooks = {
     "personal-workbench" = {
       type = "USER_MANAGED"
     }
   }
+  
   bucket_name  = "fardust-mlops-artifacts"
   dataset_name = "MLOPS_TRAIN_DATASET"
   region       = var.region

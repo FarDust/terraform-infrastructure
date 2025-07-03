@@ -47,14 +47,14 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.6 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | ~>5.4 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.11.4 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | ~>6.40 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.10.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | 6.42.0 |
 
 ## Modules
 
