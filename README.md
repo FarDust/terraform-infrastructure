@@ -52,7 +52,9 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_google"></a> [google](#provider\_google) | 5.10.0 |
 
 ## Modules
 
@@ -67,7 +69,9 @@ No providers.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [google_project.current](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
 
 ## Inputs
 
@@ -84,6 +88,18 @@ No resources.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_artifact_registries"></a> [artifact\_registries](#output\_artifact\_registries) | Information about artifact registries |
+| <a name="output_billing_budget"></a> [billing\_budget](#output\_billing\_budget) | Billing budget information |
+| <a name="output_billing_topic"></a> [billing\_topic](#output\_billing\_topic) | Pub/Sub topic for billing alerts |
+| <a name="output_cross_project_iam"></a> [cross\_project\_iam](#output\_cross\_project\_iam) | IAM information for cross-project access |
+| <a name="output_federated_service_accounts"></a> [federated\_service\_accounts](#output\_federated\_service\_accounts) | Map of federated service accounts with their details |
+| <a name="output_identity_pool_id"></a> [identity\_pool\_id](#output\_identity\_pool\_id) | The Workload Identity Pool ID for GitHub federation |
+| <a name="output_identity_provider_id"></a> [identity\_provider\_id](#output\_identity\_provider\_id) | The Workload Identity Provider ID for GitHub federation |
+| <a name="output_network_info"></a> [network\_info](#output\_network\_info) | Network and security information for cross-project access |
+| <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The GCP project ID where resources are deployed |
+| <a name="output_region"></a> [region](#output\_region) | The GCP region where resources are deployed |
+| <a name="output_registry_urls"></a> [registry\_urls](#output\_registry\_urls) | Artifact Registry URLs for cross-project access |
 <!-- END_TF_DOCS -->
 
