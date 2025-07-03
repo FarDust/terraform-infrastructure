@@ -31,13 +31,14 @@ output "federated_service_accounts" {
   description = "Map of federated service accounts with their details"
   value = {
     for key, user in var.federated_github_users : key => {
-      name        = module.identity.federated_users[key].name
+      name        = module.identity.federated_users.service_account_ids[key]
       email       = module.identity.github_identity_federation.federated-github-users[key].federated-user.email
       display_name = user.display_name
       description = user.description
       allowed_repositories = user.allowed-repositories
     }
   }
+  sensitive = true
 }
 
 # Artifact Registry Information
@@ -93,6 +94,7 @@ output "cross_project_iam" {
     public_artifacts_sa   = module.identity.github_identity_federation.federated-github-users["public-artifacts"].federated-user.email
     deploy_ai_api_sa      = module.identity.github_identity_federation.federated-github-users["deploy-ai-api"].federated-user.email
   }
+  sensitive = true
 }
 
 # Network and Security Information
