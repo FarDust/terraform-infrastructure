@@ -13,10 +13,19 @@ Welcome to the **Terraform Infrastructure** repository! 🚀 This repository ser
 - **🔧 Resources Provided:**
   - Google Cloud IAM member tailored specifically for GitHub actions.
 
-### 🗂️ Module Structure
-- **Modules:**
+### 🗂️ Project Structure
+- **📁 Root Directory:** Contains main configuration files and entry points
+- **📁 configs/:** Modularized Terraform configuration files organized by functionality
+  - `apis.tf` - API enablement and common labels
+  - `identity.tf` - Identity federation and service accounts
+  - `mlops.tf` - MLOps and Vertex AI configuration
+  - `artifact-registry.tf` - Container registries and IAM
+  - `iam.tf` - IAM permissions and bindings
+  - `billing.tf` - Billing alerts and budgets
+- **📁 modules/:** Reusable Terraform modules
   - **👥 GitHub Identity Federation:** Located in `./modules/github-identity-federation`, this module facilitates identity federation with GitHub users.
   - **🤖 MLOps:** Located in `./modules/vertex-ai`, this module is designed for managing your MLOps workflows.
+  - **🔧 Named Service Accounts:** Located in `./modules/named_sa`, this module manages service account naming conventions.
 
 ### 📋 Requirements
 - **Terraform Version:** ~> 1.6
