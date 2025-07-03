@@ -48,29 +48,22 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | 5.10.0 |
+No providers.
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_federated_users"></a> [federated\_users](#module\_federated\_users) | ./modules/named_sa | n/a |
-| <a name="module_github-identity-federation"></a> [github-identity-federation](#module\_github-identity-federation) | ./modules/github-identity-federation | n/a |
-| <a name="module_mlops"></a> [mlops](#module\_mlops) | ./modules/vertex-ai | n/a |
+| <a name="module_apis"></a> [apis](#module\_apis) | ./configs/apis | n/a |
+| <a name="module_artifact_registry"></a> [artifact\_registry](#module\_artifact\_registry) | ./configs/artifact-registry | n/a |
+| <a name="module_billing"></a> [billing](#module\_billing) | ./configs/billing | n/a |
+| <a name="module_iam"></a> [iam](#module\_iam) | ./configs/iam | n/a |
+| <a name="module_identity"></a> [identity](#module\_identity) | ./configs/identity | n/a |
+| <a name="module_mlops"></a> [mlops](#module\_mlops) | ./configs/mlops | n/a |
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [google_artifact_registry_repository.brainwave](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository) | resource |
-| [google_artifact_registry_repository_iam_member.brainwave-writer-deploy-ai-api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository_iam_member) | resource |
-| [google_billing_budget.dev_budget](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget) | resource |
-| [google_project_iam_member.cloudrun-developer-deploy-ai-api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [google_project_iam_member.github-actions-artifacts-binding](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [google_project_service.enable_apis](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_pubsub_topic.billing_alerts](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic) | resource |
+No resources.
 
 ## Inputs
 
