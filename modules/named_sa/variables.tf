@@ -13,9 +13,9 @@ variable "service_accounts" {
 
   validation {
     condition = alltrue([
-      for sa_name, sa_config in var.service_accounts : contains(["standard", "federated-user"], sa_config.sa_type)
+      for sa_name, sa_config in var.service_accounts : contains(["standard", "federated"], sa_config.sa_type)
     ])
-    error_message = "Each 'sa_type' must be either 'standard' or 'federated-user'."
+    error_message = "Each 'sa_type' must be either 'standard' or 'federated'."
   }
 
   validation {

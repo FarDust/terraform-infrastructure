@@ -12,11 +12,24 @@ Welcome to the **Terraform Infrastructure** repository! 🚀 This repository ser
 - **✅ Workload Identity Pool (GitHub):** Seamlessly authenticate your GitHub actions with Google Cloud services securely.
 - **🔧 Resources Provided:**
   - Google Cloud IAM member tailored specifically for GitHub actions.
+  - **📦 Artifact Registries:** Public and private Docker registries for container images
+  - **🔐 Federated Service Accounts:** GitHub-integrated service accounts for secure deployments
+  - **💰 Billing & Monitoring:** Budget alerts and Pub/Sub topics for cost management
+  - **🤖 MLOps Infrastructure:** Vertex AI setup for machine learning workflows
 
-### 🗂️ Module Structure
-- **Modules:**
+### 🗂️ Project Structure
+- **📁 Root Directory:** Contains main configuration files and entry points
+- **📁 configs/:** Modularized Terraform configuration files organized by functionality
+  - `apis.tf` - API enablement and common labels
+  - `identity.tf` - Identity federation and service accounts
+  - `mlops.tf` - MLOps and Vertex AI configuration
+  - `artifact-registry.tf` - Container registries and IAM
+  - `iam.tf` - IAM permissions and bindings
+  - `billing.tf` - Billing alerts and budgets
+- **📁 modules/:** Reusable Terraform modules
   - **👥 GitHub Identity Federation:** Located in `./modules/github-identity-federation`, this module facilitates identity federation with GitHub users.
   - **🤖 MLOps:** Located in `./modules/vertex-ai`, this module is designed for managing your MLOps workflows.
+  - **🔧 Named Service Accounts:** Located in `./modules/named_sa`, this module manages service account naming conventions.
 
 ### 📋 Requirements
 - **Terraform Version:** ~> 1.6
@@ -47,21 +60,18 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_federated_users"></a> [federated\_users](#module\_federated\_users) | ./modules/named_sa | n/a |
-| <a name="module_github-identity-federation"></a> [github-identity-federation](#module\_github-identity-federation) | ./modules/github-identity-federation | n/a |
-| <a name="module_mlops"></a> [mlops](#module\_mlops) | ./modules/vertex-ai | n/a |
+| <a name="module_apis"></a> [apis](#module\_apis) | ./configs/apis | n/a |
+| <a name="module_artifact_registry"></a> [artifact\_registry](#module\_artifact\_registry) | ./configs/artifact-registry | n/a |
+| <a name="module_billing"></a> [billing](#module\_billing) | ./configs/billing | n/a |
+| <a name="module_iam"></a> [iam](#module\_iam) | ./configs/iam | n/a |
+| <a name="module_identity"></a> [identity](#module\_identity) | ./configs/identity | n/a |
+| <a name="module_mlops"></a> [mlops](#module\_mlops) | ./configs/vertex-ai | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [google_artifact_registry_repository.brainwave](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository) | resource |
-| [google_artifact_registry_repository_iam_member.brainwave-writer-deploy-ai-api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/artifact_registry_repository_iam_member) | resource |
-| [google_billing_budget.dev_budget](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/billing_budget) | resource |
-| [google_project_iam_member.cloudrun-developer-deploy-ai-api](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [google_project_iam_member.github-actions-artifacts-binding](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
-| [google_project_service.enable_apis](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
-| [google_pubsub_topic.billing_alerts](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/pubsub_topic) | resource |
+| [google_project.current](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
 
 ## Inputs
 
@@ -78,6 +88,18 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_artifact_registries"></a> [artifact\_registries](#output\_artifact\_registries) | Information about artifact registries |
+| <a name="output_billing_budget"></a> [billing\_budget](#output\_billing\_budget) | Billing budget information |
+| <a name="output_billing_topic"></a> [billing\_topic](#output\_billing\_topic) | Pub/Sub topic for billing alerts |
+| <a name="output_cross_project_iam"></a> [cross\_project\_iam](#output\_cross\_project\_iam) | IAM information for cross-project access |
+| <a name="output_federated_service_accounts"></a> [federated\_service\_accounts](#output\_federated\_service\_accounts) | Map of federated service accounts with their details |
+| <a name="output_identity_pool_id"></a> [identity\_pool\_id](#output\_identity\_pool\_id) | The Workload Identity Pool ID for GitHub federation |
+| <a name="output_identity_provider_id"></a> [identity\_provider\_id](#output\_identity\_provider\_id) | The Workload Identity Provider ID for GitHub federation |
+| <a name="output_network_info"></a> [network\_info](#output\_network\_info) | Network and security information for cross-project access |
+| <a name="output_project_id"></a> [project\_id](#output\_project\_id) | The GCP project ID where resources are deployed |
+| <a name="output_region"></a> [region](#output\_region) | The GCP region where resources are deployed |
+| <a name="output_registry_urls"></a> [registry\_urls](#output\_registry\_urls) | Artifact Registry URLs for cross-project access |
 <!-- END_TF_DOCS -->
 
