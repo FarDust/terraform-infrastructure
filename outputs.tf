@@ -5,6 +5,7 @@
 output "project_id" {
   description = "The GCP project ID where resources are deployed"
   value       = var.landing_project_id
+  sensitive   = true
 }
 
 output "region" {
@@ -16,11 +17,13 @@ output "region" {
 output "identity_pool_id" {
   description = "The Workload Identity Pool ID for GitHub federation"
   value       = var.landing_identity_pool_id
+  sensitive   = true
 }
 
 output "identity_provider_id" {
   description = "The Workload Identity Provider ID for GitHub federation"
   value       = var.landing_identity_provider_id
+  sensitive   = true
 }
 
 # Service Account Information
@@ -63,6 +66,7 @@ output "registry_urls" {
     brainwave = "${var.gcp_region}-docker.pkg.dev/${var.landing_project_id}/brainwave"
     public_docker = "${var.gcp_region}-docker.pkg.dev/${var.landing_project_id}/public-docker"
   }
+  sensitive = true
 }
 
 # Billing Information
