@@ -13,10 +13,6 @@ moved {
   to   = module.identity.module.github-identity-federation
 }
 
-moved {
-  from = module.mlops
-  to   = module.mlops.module.mlops
-}
 
 moved {
   from = google_artifact_registry_repository.brainwave

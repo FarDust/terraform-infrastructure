@@ -21,9 +21,9 @@ module "identity" {
 }
 
 module "mlops" {
-  source = "./configs/mlops"
-  gcp_region = var.gcp_region
-  landing_project_id = var.landing_project_id
+  source     = "./configs/vertex-ai"
+  region     = var.gcp_region
+  project-id = var.landing_project_id
 }
 
 module "artifact_registry" {
