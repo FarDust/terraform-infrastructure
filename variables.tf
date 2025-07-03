@@ -8,7 +8,7 @@ variable "gcp_region" {
 variable "landing_project_id" {
   type        = string
   description = "The ID of the project in which the resources will be provisioned."
-  sensitive   = false
+  sensitive   = true
 }
 
 variable "mlops_project_id" {
