@@ -16,7 +16,7 @@ This directory contains the modularized Terraform configuration organized into l
 - **outputs.tf**: Module outputs
 - **Purpose**: Manages federated users and GitHub identity federation
 
-### `mlops/`
+### `vertex-ai/`
 - **main.tf**: MLOps and Vertex AI configuration
 - **variables.tf**: Module variables
 - **Purpose**: Machine Learning Operations setup
@@ -41,7 +41,7 @@ This directory contains the modularized Terraform configuration organized into l
 ```
 apis/ → (no dependencies)
 identity/ → (no dependencies)
-mlops/ → (no dependencies)
+vertex-ai/ → (no dependencies)
 artifact-registry/ → identity/
 iam/ → identity/
 billing/ → (no dependencies)

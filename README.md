@@ -12,6 +12,10 @@ Welcome to the **Terraform Infrastructure** repository! 🚀 This repository ser
 - **✅ Workload Identity Pool (GitHub):** Seamlessly authenticate your GitHub actions with Google Cloud services securely.
 - **🔧 Resources Provided:**
   - Google Cloud IAM member tailored specifically for GitHub actions.
+  - **📦 Artifact Registries:** Public and private Docker registries for container images
+  - **🔐 Federated Service Accounts:** GitHub-integrated service accounts for secure deployments
+  - **💰 Billing & Monitoring:** Budget alerts and Pub/Sub topics for cost management
+  - **🤖 MLOps Infrastructure:** Vertex AI setup for machine learning workflows
 
 ### 🗂️ Project Structure
 - **📁 Root Directory:** Contains main configuration files and entry points
