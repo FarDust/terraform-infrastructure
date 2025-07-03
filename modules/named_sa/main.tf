@@ -4,10 +4,14 @@ locals {
     "federated" = "-fa"
   }
 
+  calculated_suffixes = {
+    for key, sa_params in var.service_accounts : key => 
+      sa_params.add_suffix_by_this_module ? lookup(local.suffix_map, sa_params.sa_type, "-sa") : ""
+  }
+
   calculated_account_ids = {
     for key, sa_params in var.service_accounts : key => {
-      calculated_suffix = sa_params.add_suffix_by_this_module ? lookup(local.suffix_map, sa_params.sa_type, "-sa") : ""
-      account_id        = "${sa_params.domain}-${sa_params.component}-${sa_params.purpose}-${sa_params.env}${calculated_suffix}"
+      account_id = "${sa_params.domain}-${sa_params.component}-${sa_params.purpose}-${sa_params.env}${local.calculated_suffixes[key]}"
     }
   }
 
