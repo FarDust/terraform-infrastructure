@@ -5,7 +5,7 @@ module "reaper_forge_sa" {
     "reaper-forge" = {
       domain      = "vision"
       component   = "anomaly"
-      purpose     = "reaper-forge"
+      purpose     = "reaper"
       env         = "prod"
       description = "Service account for reaper-forge vision anomaly detection model"
       sa_type     = "standard"
