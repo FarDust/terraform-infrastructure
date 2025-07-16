@@ -13,7 +13,8 @@ resource "google_project_service" "enable_apis" {
     "iamcredentials.googleapis.com",
     "cloudbuild.googleapis.com",
     "logging.googleapis.com",
-    "compute.googleapis.com"
+    "compute.googleapis.com",
+    "firestore.googleapis.com"
   ])
   project = var.landing_project_id
   service = each.key

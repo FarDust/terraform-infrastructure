@@ -1,6 +1,6 @@
 # Terraform Configuration Structure
 
-This directory contains the modularized Terraform configuration organized into logical modules.
+This directory contains the foundational infrastructure configuration organized into logical modules. For application-specific infrastructure, see the `../stacks/` directory.
 
 ## Module Organization
 
@@ -31,6 +31,14 @@ This directory contains the modularized Terraform configuration organized into l
 - **variables.tf**: Module variables
 - **Purpose**: Project-level IAM permissions
 
+### `storage/`
+- **main.tf**: Storage services configuration including Firestore
+- **variables.tf**: Module variables
+- **outputs.tf**: Module outputs
+- **Purpose**: Manages storage services (Firestore database)
+
+
+
 ### `billing/`
 - **main.tf**: Billing and monitoring setup
 - **variables.tf**: Module variables
@@ -44,6 +52,7 @@ identity/ → (no dependencies)
 vertex-ai/ → (no dependencies)
 artifact-registry/ → identity/
 iam/ → identity/
+storage/ → apis/
 billing/ → (no dependencies)
 ```
 
