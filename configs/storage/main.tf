@@ -1,7 +1,7 @@
 
 resource "google_firestore_database" "main" {
   project     = var.landing_project_id
-  name        = "(default)"
+  name        = "services-coordination"
   location_id = var.gcp_region
   type        = "FIRESTORE_NATIVE"
   
