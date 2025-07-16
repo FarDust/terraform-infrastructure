@@ -44,7 +44,6 @@ module "storage" {
 module "reaper_forge" {
   source = "./stacks/reaper-forge"
   landing_project_id = var.landing_project_id
-  firestore_database_name = module.storage.firestore_database.name
   depends_on = [module.storage]
 }
 
