@@ -1,11 +1,4 @@
-# Main Terraform configuration
-# This file serves as the entry point for the infrastructure
-# All resources are organized in modules under the configs/ directory
 
-# Terraform automatically discovers and loads all .tf files in the current directory
-# and subdirectories. The configs/ directory contains the modularized configuration.
-
-# Module calls
 module "apis" {
   source = "./configs/apis"
   landing_project_id = var.landing_project_id
@@ -39,6 +32,19 @@ module "iam" {
   landing_project_id = var.landing_project_id
   github_identity_federation_output = module.identity.github_identity_federation
   depends_on = [module.identity]
+}
+
+module "storage" {
+  source = "./configs/storage"
+  landing_project_id = var.landing_project_id
+  gcp_region = var.gcp_region
+  depends_on = [module.apis]
+}
+
+module "reaper_forge" {
+  source = "./stacks/reaper-forge"
+  landing_project_id = var.landing_project_id
+  depends_on = [module.storage]
 }
 
 module "billing" {

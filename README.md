@@ -66,6 +66,8 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 | <a name="module_iam"></a> [iam](#module\_iam) | ./configs/iam | n/a |
 | <a name="module_identity"></a> [identity](#module\_identity) | ./configs/identity | n/a |
 | <a name="module_mlops"></a> [mlops](#module\_mlops) | ./configs/vertex-ai | n/a |
+| <a name="module_reaper_forge"></a> [reaper\_forge](#module\_reaper\_forge) | ./stacks/reaper-forge | n/a |
+| <a name="module_storage"></a> [storage](#module\_storage) | ./configs/storage | n/a |
 
 ## Resources
 
