@@ -46,20 +46,20 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 ## Requirements
 
 | Name | Version |
-| ---- | ------- |
+|------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.11.4 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~>6.40 |
 
 ## Providers
 
 | Name | Version |
-| ---- | ------- |
+|------|---------|
 | <a name="provider_google"></a> [google](#provider\_google) | 6.42.0 |
 
 ## Modules
 
 | Name | Source | Version |
-| ---- | ------ | ------- |
+|------|--------|---------|
 | <a name="module_apis"></a> [apis](#module\_apis) | ./configs/apis | n/a |
 | <a name="module_artifact_registry"></a> [artifact\_registry](#module\_artifact\_registry) | ./configs/artifact-registry | n/a |
 | <a name="module_billing"></a> [billing](#module\_billing) | ./configs/billing | n/a |
@@ -72,13 +72,13 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 ## Resources
 
 | Name | Type |
-| ---- | ---- |
+|------|------|
 | [google_project.current](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/project) | data source |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-| ---- | ----------- | ---- | ------- | :------: |
+|------|-------------|------|---------|:--------:|
 | <a name="input_billing_account_id"></a> [billing\_account\_id](#input\_billing\_account\_id) | The ID of the GCP billing account to associate budgets and resources with | `string` | n/a | yes |
 | <a name="input_federated_github_users"></a> [federated\_github\_users](#input\_federated\_github\_users) | Federated service accounts using named\_sa module. | <pre>map(object({<br/>    display_name              = string<br/>    description               = string<br/>    allowed-repositories      = list(string)<br/>    domain                    = string<br/>    component                 = string<br/>    purpose                   = string<br/>    env                       = string<br/>    sa_type                   = optional(string, "federated")<br/>    add_suffix_by_this_module = optional(bool, true)<br/>  }))</pre> | n/a | yes |
 | <a name="input_gcp_region"></a> [gcp\_region](#input\_gcp\_region) | The region in which the resources will be provisioned. | `string` | `"us-central1"` | no |
@@ -92,7 +92,7 @@ This project is licensed under the **MIT license**, allowing for flexibility and
 ## Outputs
 
 | Name | Description |
-| ---- | ----------- |
+|------|-------------|
 | <a name="output_artifact_registries"></a> [artifact\_registries](#output\_artifact\_registries) | Information about artifact registries |
 | <a name="output_billing_budget"></a> [billing\_budget](#output\_billing\_budget) | Billing budget information |
 | <a name="output_billing_topic"></a> [billing\_topic](#output\_billing\_topic) | Pub/Sub topic for billing alerts |
