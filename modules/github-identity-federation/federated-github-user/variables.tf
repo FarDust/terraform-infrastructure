@@ -1,3 +1,14 @@
+variable "legacy-repositories" {
+  type        = list(string)
+  description = "Optional legacy binding repositories. Null preserves modern member resources; a list selects the original binding and naming contract."
+  default     = null
+
+  validation {
+    condition     = var.legacy-repositories == null ? true : length(distinct(var.legacy-repositories)) <= 1
+    error_message = "Legacy bindings support at most one distinct repository per account. Use modern members for multiple repositories."
+  }
+}
+
 variable "project-id" {
   type        = string
   description = "The project ID to create the service account in."

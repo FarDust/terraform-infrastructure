@@ -12,6 +12,8 @@ resource "google_iam_workload_identity_pool_provider" "identity-pool-provider" {
   display_name                       = "Github provider"
   description                        = "Identity pool provider for Github"
 
+  attribute_condition = nonsensitive(var.github_repository_owner == null) ? null : "attribute.repository_owner == ${jsonencode(var.github_repository_owner)}\n"
+
   attribute_mapping = {
     "attribute.repository"       = "assertion.repository"
     "attribute.repository_owner" = "assertion.repository_owner"
@@ -35,4 +37,5 @@ module "federated-github-user" {
   description          = each.value.description
   identity-pool-name   = google_iam_workload_identity_pool.identity-pool.name
   allowed-repositories = each.value.allowed-repositories
+  legacy-repositories  = var.legacy_mode ? each.value.allowed-repositories : null
 }
