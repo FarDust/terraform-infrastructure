@@ -1,3 +1,10 @@
+variable "github_repository_owner" {
+  type        = string
+  description = "Optional repository-owner restriction supplied privately; null preserves existing behavior."
+  sensitive   = true
+  default     = null
+}
+
 variable "gcp_region" {
   type        = string
   description = "The region in which the resources will be provisioned."
@@ -42,14 +49,14 @@ variable "legacy_federated_github_users" {
 
 variable "federated_github_users" {
   type = map(object({
-    display_name         = string
-    description          = string
-    allowed-repositories = list(string)
-    domain              = string
-    component           = string
-    purpose             = string
-    env                 = string
-    sa_type             = optional(string, "federated")
+    display_name              = string
+    description               = string
+    allowed-repositories      = list(string)
+    domain                    = string
+    component                 = string
+    purpose                   = string
+    env                       = string
+    sa_type                   = optional(string, "federated")
     add_suffix_by_this_module = optional(bool, true)
   }))
   description = "Federated service accounts using named_sa module."
@@ -61,4 +68,3 @@ variable "billing_account_id" {
   type        = string
   sensitive   = true
 }
-
